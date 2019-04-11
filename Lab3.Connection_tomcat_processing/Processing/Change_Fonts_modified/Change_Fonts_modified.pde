@@ -59,7 +59,7 @@ void draw() {
   GetRequest get = new GetRequest("http://localhost:9090/FakeSensor/sensor?param=1");
   get.send();
   String[] fake_sensor = match(get.getContent(), "<Sensor_Value>(.*?)</Sensor_Value>");
-  newSensorReading = (int)fake_sensor;
+  newSensorReading = int(float(fake_sensor[1])*180);
 
   // Display the new sensor value.
   m.updateMeter(newSensorReading);
