@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package fakeSensor;
+package mypkg;
 import java.sql.*;
 import java.util.*;
 import java.sql.*;
@@ -17,7 +17,7 @@ import javax.servlet.http.*;
  *
  * @author FMR
  */
-public class fakesensor extends HttpServlet {
+public class FakeSensor extends HttpServlet {
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
@@ -29,11 +29,41 @@ public class fakesensor extends HttpServlet {
     throws ServletException, IOException {
 		String head ="<sensor_table>";
 		String tail = "</sensor_table>";
-		String fakeTemp = "<Sensor><TimeStamp>2010-09-0708:41:42.0</TimeStamp><Sensor_Id>1</Sensor_Id><Sensor_Name>Temp</Sensor_Name> <Sensor_Value>0.307000011205673</Sensor_Value><Sensor_Flag>true</Sensor_Flag></Sensor>";		
-		String fakeLight = "<Sensor><TimeStamp>2010-09-0708:41:42.0</TimeStamp><Sensor_Id>2</Sensor_Id><Sensor_Name>Light</Sensor_Name> <Sensor_Value>0.197999998927116</Sensor_Value><Sensor_Flag>true</Sensor_Flag></Sensor>";		
-		String fakeVibration = "<Sensor><TimeStamp>2010-09-0708:41:42.0</TimeStamp><Sensor_Id>3</Sensor_Id><Sensor_Name>Vibration</Sensor_Name> <Sensor_Value>0.509999990463257</Sensor_Value><Sensor_Flag>false</Sensor_Flag></Sensor>";		
-		String fakeWeight = "<Sensor><TimeStamp>2010-09-0708:41:42.0</TimeStamp><Sensor_Id>4</Sensor_Id><Sensor_Name>Weight</Sensor_Name> <Sensor_Value>0.980000019073486</Sensor_Value><Sensor_Flag>true</Sensor_Flag></Sensor>";		
-		String fakeProximity = "<Sensor><TimeStamp>2010-09-0708:41:42.0</TimeStamp><Sensor_Id>5</Sensor_Id><Sensor_Name>Proximity</Sensor_Name> <Sensor_Value>0.017000000923872</Sensor_Value><Sensor_Flag>false</Sensor_Flag></Sensor>";
+		String fakeTemp = "<Sensor>
+                            <TimeStamp>2010-09-0708:41:42.0</TimeStamp>
+                            <Sensor_Id>1</Sensor_Id>
+                            <Sensor_Name>Temp</Sensor_Name> 
+                            <Sensor_Value>"+Math.random()+"</Sensor_Value>
+                            <Sensor_Flag>true</Sensor_Flag>
+                            </Sensor>";		
+		String fakeLight = "<Sensor>
+                            <TimeStamp>2010-09-0708:41:42.0</TimeStamp>
+                            <Sensor_Id>2</Sensor_Id>
+                            <Sensor_Name>Light</Sensor_Name> 
+                            <Sensor_Value>"+Math.random()+"</Sensor_Value>
+                            <Sensor_Flag>true</Sensor_Flag>
+                            </Sensor>";		
+		String fakeVibration = "<Sensor>
+                            <TimeStamp>2010-09-0708:41:42.0</TimeStamp>
+                            <Sensor_Id>3</Sensor_Id>
+                            <Sensor_Name>Vibration</Sensor_Name> 
+                            <Sensor_Value>"+Math.random()+"</Sensor_Value>
+                            <Sensor_Flag>false</Sensor_Flag>
+                            </Sensor>";		
+		String fakeWeight = "<Sensor>
+                            <TimeStamp>2010-09-0708:41:42.0</TimeStamp>
+                            <Sensor_Id>4</Sensor_Id>
+                            <Sensor_Name>Weight</Sensor_Name> 
+                            <Sensor_Value>"+Math.random()+"</Sensor_Value>
+                            <Sensor_Flag>true</Sensor_Flag>
+                            </Sensor>";		
+		String fakeProximity = "<Sensor>
+                            <TimeStamp>2010-09-0708:41:42.0</TimeStamp>
+                            <Sensor_Id>5</Sensor_Id>
+                            <Sensor_Name>Proximity</Sensor_Name> 
+                            <Sensor_Value>"+Math.random()+"</Sensor_Value>
+                            <Sensor_Flag>false</Sensor_Flag>
+                            </Sensor>";
         
 		String name = "param";
         String value = request.getParameter(name);		
