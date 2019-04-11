@@ -13,6 +13,7 @@
  */
 
 import meter.*;
+import http.requests.*;
 
 Meter m;
 
@@ -48,13 +49,17 @@ void setup() {
 
   // Display the digital meter value.
   m.setDisplayDigitalMeterValue(true);
+  // el tio jaime
 }
 
 void draw() {
 
-  // Simulate sensor data.
+  // Fake sensor data.
   int newSensorReading;
-  newSensorReading = (int)random(0, 255);
+  GetRequest get = new GetRequest("http://localhost:9090/FakeSensor/sensor?param=1");
+  get.send();
+  String[] fake_sensor = match(get.getContent(), "<Sensor_Value>(.*?)</Sensor_Value>");
+  newSensorReading = (int)fake_sensor;
 
   // Display the new sensor value.
   m.updateMeter(newSensorReading);
