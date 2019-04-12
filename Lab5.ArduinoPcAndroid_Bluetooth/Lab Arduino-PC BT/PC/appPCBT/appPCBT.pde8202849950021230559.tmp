@@ -1,0 +1,32 @@
+import processing.serial.*;
+
+Serial myPort;  // Create object from Serial class
+      
+String informacion = "";// Data received from the serial port
+
+void setup() 
+{
+  size(200, 200);
+  textSize(50);
+  // I know that the first port in the serial list on my mac
+  // is always my  FTDI adaptor, so I open Serial.list()[0].
+  // On Windows machines, this generally opens COM1.
+  // Open whatever port is the one you're using.
+  String portName = Serial.list()[3];
+  println(Serial.list());
+  myPort = new Serial(this, portName, 9600);
+}
+
+void draw(){
+  while ( myPort.available() > 0 && myPort.available() == '?') {  // If data is available,
+    informacion = informacion + myPort.read();         // read it and store it in val
+  }
+  informacion += "\n";
+
+  background(0);             // Set background to white
+  text( informacion, width/2, height/2);
+
+  if (informacion.length() > 150)             //clean the words on screen if string to long
+    informacion = "";
+}
+    //myPort.write('H');
