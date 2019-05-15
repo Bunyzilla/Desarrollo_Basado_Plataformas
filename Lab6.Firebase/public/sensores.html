@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">    
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <!--Estilos para css llamando a el archivo en la carpeta -->
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/estilosSensores.css">
+
+        <title>Start Playing WEB</title>
+    </head>
+    <body>
+        <!--Inicio del menu-->
+        <div class="container">
+            <br>
+            <br>
+            <header>
+                <nav class="navbar navbar-inverse">
+                    <div class="conteiner-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+                                <span class="sr-only">Tester</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="index.html" class="navbar-brand" id="navbar-1">Tester</a>
+                        </div>
+                        <div class="colapse navbar-collapse" id="navbar-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html"><span class="icon-feather"></span>  Inicio</a></li>
+                                <li><a href="leds.html"><span class="icon-light-bulb"></span>  Leds</a></li>
+                                <li class="active"><a href="sensores.html"><span class="icon-water"></span>  Sensores</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
+        <!--Final del menu-->
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!--Inicio Sensores cuerpo-->
+        <div>
+            <img src="img/dia_frio.jpg" class="bg" id="imgDiaFrio" style="display:none">
+            <img src="img/dia_fresco.jpg" class="bg" id="imgDiaFresco" style="display:none">
+            <img src="img/dia_calido.jpg" class="bg" id="imgDiaCalido" style="display:none">
+            <img src="img/dia_caluroso.jpg" class="bg" id="imgDiaCaluroso" style="display:none">
+            <img src="img/noche.jpg" class="bg" id="imgNoche" style="display:none">
+        </div>
+
+        <!--Texto que se mostrara en la interfaz-->
+        <h1>Sensor Temperatura: <span id="temp"></span>° C</h1>
+        <h1>Sensor de Luz: <span id="luz"></span></h1>
+        <h2><span id="dia"></span></h2>
+
+        
+        <!--Final Sensores cuerpo-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- pie de pagina -->
+        <div class="container">
+        </div>   
+
+
+        <!--Estilos para javaScript llamando a jquerty desde su pagina y a el archivo en la carpeta local -->
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Iniciamos el servicio de firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+                apiKey: "AIzaSyAisj6VJrWRqWZ2vyerRgr6wc7RJccfvYA",
+                authDomain: "greattest-e9316.firebaseapp.com",
+                databaseURL: "https://greattest-e9316.firebaseio.com",
+                projectId: "greattest-e9316",
+                storageBucket: "greattest-e9316.appspot.com",
+                messagingSenderId: "766059213542",
+                appId: "1:766059213542:web:67eacd23675974ab"
+            };
+      firebase.initializeApp(config);
+    </script>
+
+        <!--llamamos nuestra libreria personal de javaScript-->
+        <script src="jsfunction/mainSensores.js"></script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Estilos para css llamando a el archivo en la carpeta -->
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/estilos.css">
+
+    <title>Start Playing WEB</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.0.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.0.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.0.2/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.0.2/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.0.2/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+
+  
+  <body>
+    <!--Inicio del menu-->
+    <div class="container">
+      <br>
+      <br>
+      <header>
+        <nav class="navbar navbar-inverse">
+          <div class="conteiner-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+                <span class="sr-only">Tester</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="" class="navbar-brand" id="navbar-1">Tester</a>
+            </div>
+            <div class="colapse navbar-collapse" id="navbar-1">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html"><span class="icon-feather"></span>  Inicio</a></li>
+                <li><a href="leds.html"><span class="icon-light-bulb"></span>  Leds</a></li>
+                <li><a href="sensores.html"><span class="icon-water"></span>  Sensores</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+    <!--Final del menu-->
+
+ <!--Inicio tarjetas cuerpo-->
+ 
+ <div class="container marketing">
+   <div class="contenedor">
+     <!--Inicio tarjeta Leds-->
+     <div class="contenedor_tarjeta">
+       <a href="leds.html">
+         <figure>
+           <img src="img/cloud_IoT.jpg" class="frontal" alt="">
+           <figcaption class="trasera">
+             <h2 class="titulo">Leds On/Off</h2>
+             <hr>
+             <p>Opción para apagar y encender leds,
+               por medio de controles on/off enviamos una señal a la base de datos de firebase,
+               pero este comportamiento se puede extender hacia otros recursos.
+             </p>
+           </figcaption> 
+         </figure>
+       </a>
+     </div>
+   </div>
+
+
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+
+ <!--Estilos para javaScript llamando a jquerty desde su pagina y a el archivo en la carpeta local -->
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <!--Iniciamos el servicio de firebase-->
+ <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+ 
+ 
+ <script src="functions/index.js"></script>
+
+  </body>
+</html>
