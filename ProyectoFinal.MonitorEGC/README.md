@@ -32,10 +32,3 @@ Documentación de las libreras Externas usadas:
      - https://www.npmjs.com/package/firebase
      - https://www.chartjs.org/docs/latest/
 
-
-
-Principalmente hay que buscar errores al correrla y corregir las cosas que fallan por usar o llenar dados como ".01" en ves de "0.01". 
-
-La interfaz que muestra los resultados se puede mejorar mucho aun mostrando los grafos con la siguiente libreria:
-
-     >> http://sigmajs.org/  (Esta pagina muestra como hacer grafos y también da ejemplos del html y el JS )
