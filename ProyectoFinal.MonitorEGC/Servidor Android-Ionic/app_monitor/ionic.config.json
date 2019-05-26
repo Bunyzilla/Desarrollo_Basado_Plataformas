@@ -1,0 +1,7 @@
+{
+  "name": "app_monitor",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Servidor EGC   <ion-icon name="pulse"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- lista de dispositivos para vincular -->
+  <ion-row *ngIf="listToggle">
+      <ion-col>
+        <!-- boton para refrescar los dispositivos disponibles -->
+        <ion-row>
+          <button style="width: -webkit-fill-available;height: 40px;border: 1px black;border-radius: 8px;" ion-button full class="submit-button" (click)="listPairedDevices()">
+            <ion-icon name="refresh"></ion-icon>&nbsp;Refresh Bluetooth Devices</button>
+        </ion-row>
+        <ion-row style="width: 100%;">
+          <ion-list style="width: 100%;">
+            <ion-radio-group style="width: 100%;" [(ngModel)]="pairedDeviceID">
+              <ion-list-header>
+                Dispositivos Disponibles
+              </ion-list-header>
+              <ion-item *ngFor="let i of pairedList;let j=index">
+                <ion-label>{{i.name}}</ion-label>
+                <ion-radio value="{{j}}" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-row>
+        <!-- Muestra un boton cuando se selecciono un item de la lista de dispositivos disponibles -->
+        <ion-row>
+          <button style="width: -webkit-fill-available;height: 40px;border: 1px black;border-radius: 8px;" 
+          ion-button full class="submit-button" (click)="selectDevice()">
+            <ion-icon name="bluetooth"></ion-icon>&nbsp;Connect Bluetooth Devices</button>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-card>
+      <ion-card-header>
+        <ion-row>
+          <ion-item>
+      <ion-label *ngIf="dataSend.estadoTransmision=='true'">Transmitiendo <ion-icon name="heart-empty"></ion-icon> del paciente<br>{{dataSend.nombre}}</ion-label>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item *ngIf="dataSend.estadoTransmision=='false'">
+            <ion-label>Nombre Paciente : </ion-label>
+            <ion-input [(ngModel)]="dataSend.nombre"></ion-input>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-item style="width: -webkit-fill-available;">
+            <ion-label>Edad:</ion-label>
+            <ion-label *ngIf="dataSend.estadoTransmision=='true'">{{dataSend.edad}}</ion-label>
+            <ion-input *ngIf="dataSend.estadoTransmision=='false'" type="number" [(ngModel)]="dataSend.edad" style="text-align: end;"></ion-input>
+          </ion-item>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+    <!-- Se activa la transmision -->
+    <ion-row color="dark" *ngIf="disconectToggle">
+      <ion-item style="width: 50%;">
+        <ion-label style="font-size: small;">TRANSMITIR</ion-label>
+        <ion-icon name="analytics"></ion-icon>
+      </ion-item>
+      <ion-item style="width: 50%;">
+        <ion-segment [(ngModel)]="dataSend.estadoTransmision" (ionChange)="actualizarTransmision()">
+          <ion-segment-button value="true">
+            <ion-label>SI</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="false">
+            <ion-label>NO</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+    </ion-row>
+    <!-- Se activa o desactiva la alarma -->
+    <ion-row color="dark">
+      <ion-item style="width: 38%;">
+       <ion-label style="font-size: small;">ALARMA</ion-label>
+       <ion-icon name="notifications"></ion-icon>
+      </ion-item>
+      <ion-item style="width: 60%;">
+        <ion-segment [(ngModel)]="dataSend.estadoAlarma" (ionChange)="actualizarAlarma()">
+          <ion-segment-button style="width: 50%;" value=true>
+            <ion-label>Activar</ion-label>
+          </ion-segment-button>
+          <ion-segment-button style="width: 50%;" value=false>
+            <ion-label>Desactivar</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+    </ion-row>
+
+    <!-- Se desactiva la coneccion -->
+  <ion-row *ngIf="disconectToggle">
+      <ion-card style="width: 100%;background-color: lightgreen;">
+        <ion-card-content>
+          <ion-list style="width: -webkit-fill-available;">
+            <ion-item>
+              <ion-label floating>Dispositivo Conectado</ion-label>
+            </ion-item>
+            <button style="width: -webkit-fill-available;height: 26px;border: 1px black;border-radius: 8px;" 
+            ion-button full class="submit-button" (click)="deviceDisconnected()">
+              <ion-icon name="send"></ion-icon>&nbsp;Desconectar
+            </button>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+</ion-content>
