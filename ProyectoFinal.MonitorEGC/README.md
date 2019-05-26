@@ -28,12 +28,9 @@ Documentacion Angular
      https://angular.io/guide/quickstart
 
 Documentación de las libreras Externas usadas:
-
-     simple-simplex - https://www.npmjs.com/package/simple-simplex
-
-     munkres-js - https://www.npmjs.com/package/munkres-js
-
-     js-graph-algorithms - https://www.npmjs.com/package/js-graph-algorithms
+     
+     - https://www.npmjs.com/package/firebase
+     - https://www.chartjs.org/docs/latest/
 
 
 
