@@ -31,4 +31,5 @@ Documentación de las libreras Externas usadas:
      
      - https://www.npmjs.com/package/firebase
      - https://www.chartjs.org/docs/latest/
+     - https://ionicframework.com/docs/native/bluetooth-serial
 
